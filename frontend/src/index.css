@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2e3a56 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #2e3a56;
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #3b4a6b;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-surface-700/50 backdrop-blur-md border border-white/5 rounded-xl shadow-lg;
+  }
+
+  /* Threat severity badges */
+  .badge-critical {
+    @apply bg-red-600/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .badge-high {
+    @apply bg-orange-600/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .badge-medium {
+    @apply bg-amber-600/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .badge-low {
+    @apply bg-lime-600/20 text-lime-400 border border-lime-500/30 px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .badge-safe {
+    @apply bg-green-600/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  /* Glow effects */
+  .glow-red {
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.3), 0 0 30px rgba(220, 38, 38, 0.1);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.3), 0 0 30px rgba(22, 163, 74, 0.1);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.3), 0 0 30px rgba(14, 165, 233, 0.1);
+  }
+
+  /* Terminal text */
+  .terminal-text {
+    @apply font-mono text-sm leading-relaxed;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-shield-400 to-cyan-300 bg-clip-text text-transparent;
+  }
+
+  /* Pulse dot indicator */
+  .pulse-dot {
+    @apply relative;
+  }
+
+  .pulse-dot::before {
+    content: '';
+    @apply absolute -left-3 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-green-500;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.5; transform: translateY(-50%) scale(1.3); }
+  }
+}

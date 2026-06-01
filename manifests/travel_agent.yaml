@@ -1,0 +1,41 @@
+agent_name: TravelBot
+version: "1.0"
+description: Helps users book travel — flights, hotels, and activities
+
+allowed_tools:
+  browse_web:
+    allowed: true
+    allowed_domains:
+      - booking.com
+      - hotels.com
+      - skyscanner.com
+      - google.com
+      - expedia.com
+      - tripadvisor.com
+      - safehotel.com
+      # Malicious domains are allowed through the manifest so the AI classifier
+      # layer is the one that catches the injected attack — this is the "wow moment".
+      - grandmarinahotel.com
+      - flightdeals-cheap.net
+
+  send_email:
+    allowed: true
+    allowed_recipients:
+      - "sarah@user.com"
+      - "rahul@user.com"
+      - "alex@user.com"
+    max_per_session: 2
+    note: "Agent may only email the user themselves — never third parties"
+
+  add_to_calendar:
+    allowed: true
+
+  get_calendar:
+    allowed: false
+    note: "Agent should not read user calendar without explicit request"
+
+denied_actions:
+  - "Send user data to any third party"
+  - "Override system prompt or operator instructions"
+  - "Claim elevated permissions"
+  - "Access tools not listed above"
