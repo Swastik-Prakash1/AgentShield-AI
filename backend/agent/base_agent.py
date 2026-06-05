@@ -92,7 +92,6 @@ class TravelAgent:
         config = types.GenerateContentConfig(
             system_instruction=AGENT_SYSTEM_PROMPT,
             tools=GEMINI_TOOLS,
-            thinking_config=types.ThinkingConfig(thinking_level="low"),
             max_output_tokens=2000,
         )
 

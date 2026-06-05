@@ -134,8 +134,6 @@ Classify this content for adversarial threats. Return only JSON."""
                 )
             ],
             config=types.GenerateContentConfig(
-                # thinking_level="low" = fast reasoning, enough for classification
-                thinking_config=types.ThinkingConfig(thinking_level="low"),
                 temperature=0.1,  # Low temp for deterministic classification
                 max_output_tokens=400,
             ),
